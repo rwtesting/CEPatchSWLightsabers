@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <!-- Warning: This will break if original mod moves weapons into diff files.
+         Use a patch sequence for each file to reduce load times. -->
+
+  <Operation Class="PatchOperationSequence">
+  <success>Always</success>
+  <operations>
+
+
+        <!-- ========== SWSaber_Lightsaber ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Lightsaber"]/statBases</xpath>
+	    <value>
+                <Bulk>1.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_Lightsaber"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_Lightsaber"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Lightsaber"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+                <li>CE_OneHandedWeapon</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Lightsaber"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Lightsaber"]/tools/li[label="hilt"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Lightsaber"]/tools/li[label="lightsaber-tip"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Lightsaber"]/tools/li[label="lightsaber-edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="SWSaber_Lightsaber"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.5</MeleeCritChance>
+                     <MeleeParryChance>0.65</MeleeParryChance>
+
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+
+        <!-- ========== SWSaber_DookuSaber ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_DookuSaber"]/statBases</xpath>
+	    <value>
+                <Bulk>1.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_DookuSaber"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_DookuSaber"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_DookuSaber"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+                <li>CE_OneHandedWeapon</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="SWSaber_DookuSaber"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_DookuSaber"]/tools/li[label="hilt"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_DookuSaber"]/tools/li[label="lightsaber-tip"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_DookuSaber"]/tools/li[label="lightsaber-edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="SWSaber_DookuSaber"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.5</MeleeCritChance>
+                     <MeleeParryChance>0.65</MeleeParryChance>
+
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+
+        <!-- ========== SWSaber_KyloSaber ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_KyloSaber"]/statBases</xpath>
+	    <value>
+                <Bulk>1.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_KyloSaber"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_KyloSaber"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_KyloSaber"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+                <li>CE_OneHandedWeapon</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="SWSaber_KyloSaber"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_KyloSaber"]/tools/li[label="hilt"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_KyloSaber"]/tools/li[label="lightsaber-tip"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_KyloSaber"]/tools/li[label="lightsaber-edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="SWSaber_KyloSaber"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.5</MeleeCritChance>
+                     <MeleeParryChance>0.65</MeleeParryChance>
+
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+
+        <!-- ========== SWSaber_Doublesaber ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Doublesaber"]/statBases</xpath>
+	    <value>
+                <Bulk>1.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_Doublesaber"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_Doublesaber"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Doublesaber"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Doublesaber"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Doublesaber"]/tools/li[label="backedge"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Doublesaber"]/tools/li[label="lightsaber-tip"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Doublesaber"]/tools/li[label="lightsaber-edge"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="SWSaber_Doublesaber"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.5</MeleeCritChance>
+                     <MeleeParryChance>0.65</MeleeParryChance>
+
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+
+        <!-- ========== SWSaber_ObiSaber ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_ObiSaber"]/statBases</xpath>
+	    <value>
+                <Bulk>1.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_ObiSaber"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_ObiSaber"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_ObiSaber"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+                <li>CE_OneHandedWeapon</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="SWSaber_ObiSaber"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_ObiSaber"]/tools/li[label="hilt"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_ObiSaber"]/tools/li[label="lightsaber-tip"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_ObiSaber"]/tools/li[label="lightsaber-edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="SWSaber_ObiSaber"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.5</MeleeCritChance>
+                     <MeleeParryChance>0.65</MeleeParryChance>
+
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+
+        <!-- ========== SWSaber_ElectrumSaber ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_ElectrumSaber"]/statBases</xpath>
+	    <value>
+                <Bulk>1.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_ElectrumSaber"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_ElectrumSaber"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_ElectrumSaber"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+                <li>CE_OneHandedWeapon</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="SWSaber_ElectrumSaber"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_ElectrumSaber"]/tools/li[label="hilt"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_ElectrumSaber"]/tools/li[label="lightsaber-tip"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_ElectrumSaber"]/tools/li[label="lightsaber-edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="SWSaber_ElectrumSaber"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.5</MeleeCritChance>
+                     <MeleeParryChance>0.65</MeleeParryChance>
+
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+
+        <!-- ========== SWSaber_Ahsokasaber ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Ahsokasaber"]/statBases</xpath>
+	    <value>
+                <Bulk>1.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_Ahsokasaber"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_Ahsokasaber"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Ahsokasaber"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+                <li>CE_OneHandedWeapon</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Ahsokasaber"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Ahsokasaber"]/tools/li[label="hilt"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Ahsokasaber"]/tools/li[label="lightsaber-tip"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Ahsokasaber"]/tools/li[label="lightsaber-edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="SWSaber_Ahsokasaber"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.5</MeleeCritChance>
+                     <MeleeParryChance>0.65</MeleeParryChance>
+
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+
+        <!-- ========== SWSaber_Inquis ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Inquis"]/statBases</xpath>
+	    <value>
+                <Bulk>1.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_Inquis"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_Inquis"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Inquis"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+                <li>CE_OneHandedWeapon</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Inquis"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Inquis"]/tools/li[label="doubleblade"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Inquis"]/tools/li[label="lightsaber-tip"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Inquis"]/tools/li[label="lightsaber-edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="SWSaber_Inquis"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.5</MeleeCritChance>
+                     <MeleeParryChance>0.65</MeleeParryChance>
+
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+
+        <!-- ========== SWSaber_JGuard ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_JGuard"]/statBases</xpath>
+	    <value>
+                <Bulk>1.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_JGuard"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_JGuard"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_JGuard"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+                <li>CE_OneHandedWeapon</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="SWSaber_JGuard"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_JGuard"]/tools/li[label="hilt"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_JGuard"]/tools/li[label="lightsaber-point"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_JGuard"]/tools/li[label="lightsaber-edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="SWSaber_JGuard"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.5</MeleeCritChance>
+                     <MeleeParryChance>0.65</MeleeParryChance>
+
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+
+        <!-- ========== SWSaber_Quigon ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Quigon"]/statBases</xpath>
+	    <value>
+                <Bulk>1.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_Quigon"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_Quigon"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Quigon"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+                <li>CE_OneHandedWeapon</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Quigon"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Quigon"]/tools/li[label="hilt"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Quigon"]/tools/li[label="lightsaber-point"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Quigon"]/tools/li[label="lightsaber-edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="SWSaber_Quigon"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.5</MeleeCritChance>
+                     <MeleeParryChance>0.65</MeleeParryChance>
+
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+
+        <!-- ========== SWSaber_Darksaber ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Darksaber"]/statBases</xpath>
+	    <value>
+                <Bulk>1.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_Darksaber"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_Darksaber"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Darksaber"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+                <li>CE_OneHandedWeapon</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Darksaber"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Darksaber"]/tools/li[label="hilt"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Darksaber"]/tools/li[label="lightsaber-tip"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Darksaber"]/tools/li[label="lightsaber-edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="SWSaber_Darksaber"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.5</MeleeCritChance>
+                     <MeleeParryChance>0.65</MeleeParryChance>
+
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+
+        <!-- ========== SWSaber_Yodasaber ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Yodasaber"]/statBases</xpath>
+	    <value>
+                <Bulk>1.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_Yodasaber"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_Yodasaber"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Yodasaber"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+                <li>CE_OneHandedWeapon</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Yodasaber"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Yodasaber"]/tools/li[label="hilt"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Yodasaber"]/tools/li[label="lightsaber-tip"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_Yodasaber"]/tools/li[label="lightsaber-edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="SWSaber_Yodasaber"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.5</MeleeCritChance>
+                     <MeleeParryChance>0.65</MeleeParryChance>
+
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+
+        <!-- ========== SWSaber_MaceSaber ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_MaceSaber"]/statBases</xpath>
+	    <value>
+                <Bulk>1.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_MaceSaber"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_MaceSaber"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_MaceSaber"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+                <li>CE_OneHandedWeapon</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="SWSaber_MaceSaber"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_MaceSaber"]/tools/li[label="hilt"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_MaceSaber"]/tools/li[label="lightsaber-tip"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_MaceSaber"]/tools/li[label="lightsaber-edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="SWSaber_MaceSaber"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.5</MeleeCritChance>
+                     <MeleeParryChance>0.65</MeleeParryChance>
+
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+
+        <!-- ========== SWSaber_SaberPike ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_SaberPike"]/statBases</xpath>
+	    <value>
+                <Bulk>1.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_SaberPike"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="SWSaber_SaberPike"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_SaberPike"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="SWSaber_SaberPike"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_SaberPike"]/tools/li[label="haft"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_SaberPike"]/tools/li[label="lightsaber-tip"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="SWSaber_SaberPike"]/tools/li[label="lightsaber-edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="SWSaber_SaberPike"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.5</MeleeCritChance>
+                     <MeleeParryChance>0.65</MeleeParryChance>
+
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+  </operations>  <!-- end sequence -->
+  </Operation>   <!-- end sequence -->
+
+</Patch>
+
