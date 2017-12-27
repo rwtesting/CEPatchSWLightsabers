@@ -26,6 +26,7 @@ use RWPatcher::Weapons::Melee;
 #
 
 my $SOURCEFILE = "../../918200645/Defs/ThingDefs_WeaponMelee/PJ_Lightsabers.xml";
+my $SOURCEMOD  = "Star Wars - Lightsabers A18";
 
 # Give all lightsabers the same CE values for now.
 # (same as vibroaxe/Vibrosword from SWF patch, modeled after core gladius/longsword)
@@ -99,8 +100,9 @@ my %CEDATA = (
 );
 
 my $patcher = new RWPatcher::Weapons::Melee(
-    sourcefiles => [ $SOURCEFILE ],
-    cedata      => \%CEDATA,
+    #sourcemod  => $SOURCEMOD,
+    sourcefile => $SOURCEFILE,
+    cedata     => \%CEDATA,
 ) or die("ERR: Failed new RWPatcher::Weapons::Melee: $!\n");
 
 $patcher->generate_patches();
