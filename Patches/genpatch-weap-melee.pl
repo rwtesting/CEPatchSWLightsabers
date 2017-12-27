@@ -103,6 +103,7 @@ my $patcher = new RWPatcher::Weapons::Melee(
     #sourcemod  => $SOURCEMOD,
     sourcefile => $SOURCEFILE,
     cedata     => \%CEDATA,
+    expected_parents => [ "PJ_BaseLightsaber" ],
 ) or die("ERR: Failed new RWPatcher::Weapons::Melee: $!\n");
 
 $patcher->generate_patches();
